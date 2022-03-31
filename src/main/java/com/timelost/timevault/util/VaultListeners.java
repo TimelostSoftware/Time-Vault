@@ -2,6 +2,7 @@ package com.timelost.timevault.util;
 
 import com.timelost.timevault.TimeVault;
 import org.bukkit.NamespacedKey;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,6 +34,8 @@ public class VaultListeners implements Listener {
     public void onInventoryClose(InventoryCloseEvent e){
 
         Player p = (Player) e.getPlayer();
+        p.playSound(p.getLocation(), Sound.BLOCK_BARREL_CLOSE, 50f, 0.01f);
+
 
         if (e.getView().getTitle().equalsIgnoreCase("Your Timeless Vault")){
 
