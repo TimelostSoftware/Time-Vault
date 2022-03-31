@@ -34,11 +34,11 @@ public class VaultListeners implements Listener {
     public void onInventoryClose(InventoryCloseEvent e){
 
         Player p = (Player) e.getPlayer();
-        p.playSound(p.getLocation(), Sound.BLOCK_BARREL_CLOSE, 50f, 0.01f);
+
 
 
         if (e.getView().getTitle().equalsIgnoreCase("Your Timeless Vault")){
-
+            p.playSound(p.getLocation(), Sound.BLOCK_BARREL_CLOSE, 50f, 0.01f);
             ArrayList<ItemStack> prunedItems = new ArrayList<>();
 
             Arrays.stream(e.getInventory().getContents())
