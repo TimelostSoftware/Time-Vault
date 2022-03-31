@@ -32,8 +32,8 @@ public class TimeVaultUtil {
 
                 os.writeInt(items.size());
 
-                for (int i = 0; i < items.size(); i++){
-                    os.writeObject(items.get(i));
+                for (ItemStack item : items) {
+                    os.writeObject(item);
                 }
 
                 os.flush();
@@ -62,6 +62,7 @@ public class TimeVaultUtil {
 
         String encodedItems = data.get(new NamespacedKey(TimeVault.getPlugin(), "vault"), PersistentDataType.STRING);
 
+         // If this is null, its because playerdata is corrupted and or you fucked up the key
         if (!encodedItems.isEmpty()){
 
             byte[] rawData = Base64.getDecoder().decode(encodedItems);

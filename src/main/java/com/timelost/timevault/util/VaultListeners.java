@@ -48,7 +48,7 @@ public class VaultListeners implements Listener {
                         }
                         return true;
                     })
-                    .forEach(itemStack -> prunedItems.add(itemStack));
+                    .forEach(prunedItems::add);
 
 //            TimeVault.info("size: " + prunedItems.size());
 

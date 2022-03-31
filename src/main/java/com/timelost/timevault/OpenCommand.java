@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.scheduler.BukkitScheduler;
+
 import org.bukkit.util.Vector;
 
 import java.util.ArrayList;
@@ -25,8 +25,7 @@ public class OpenCommand implements CommandExecutor {
                 if (args[0].equalsIgnoreCase("open")) {
                     ArrayList<ItemStack> vaultItems = TimeVaultUtil.getItems(p);
                     Inventory timevault = Bukkit.createInventory(p, 18, "Your Timeless Vault");
-                    vaultItems.stream()
-                            .forEach(itemStack -> timevault.addItem(itemStack));
+                    vaultItems.stream().forEach(timevault::addItem);
                     p.openInventory(timevault);
                     p.sendMessage(ChatColor.GRAY + "[" + ChatColor.GOLD + "TimeVault" + ChatColor.GRAY + "] " + ChatColor.ITALIC + "Opening Vault...");
 
